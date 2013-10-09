@@ -13,6 +13,8 @@ const (
 
 type Config struct {
     GmailAddress, GmailPassword string
+
+    Geeknote string
 }
 
 func GetConfig() *Config {
