@@ -23,15 +23,15 @@ type InternalHeader struct {
 
 type GenericSuccessResponse struct {
     Success bool
-    Message string
+    Error string
 }
 
 /* Mail Component */
-type MailComponentMessage struct {
+type MailMessage struct {
     To, From, Subject, Message string
 }
 
-type MailComponentResponse struct {
+type MailResponse struct {
     GenericSuccessResponse
 }
 
@@ -44,6 +44,7 @@ type KeyValueWriteMessage struct {
     Category, Key, Value string
 }
 
-type KeyValueComponentResponse struct {
+type KeyValueResponse struct {
     GenericSuccessResponse
+    Key, Value string
 }
