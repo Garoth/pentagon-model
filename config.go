@@ -8,10 +8,12 @@ import (
 )
 
 const (
-    CONFIG_FILE = ".pentagon" // starting in user's home dir
+    CONFIG_FILE = ".pentagon/config" // starting in user's home dir
 )
 
 type Config struct {
+    Workdir string
+
     GmailAddress, GmailPassword string
 
     Geeknote string
@@ -26,7 +28,8 @@ func GetConfig() *Config {
 
     bytes, err := ioutil.ReadFile(usr.HomeDir + "/" + CONFIG_FILE)
     if err != nil {
-        log.Fatalln("Error reading config file:", err)
+        log.Println("Error reading config file:", err)
+        log.Fatalln("Ensure ~/.pentagon/config exists.")
     }
 
     config := &Config{}

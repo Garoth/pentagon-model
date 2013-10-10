@@ -3,9 +3,13 @@ package pentagonmodel
 const (
     COMPONENT_EMAIL = "email"
     SUBCOMPONENT_EMAIL_MAIN = "main"
+
     COMPONENT_KV = "key-value"
     SUBCOMPONENT_KV_WRITE = "write"
     SUBCOMPONENT_KV_READ = "read"
+
+    COMPONENT_GIT = "git"
+    SUBCOMPONENT_GIT_WATCH = "watch"
 
     KV_ACTION_WRITE = "write"
     KV_ACTION_READ = "read"
@@ -47,4 +51,14 @@ type KeyValueWriteMessage struct {
 type KeyValueResponse struct {
     GenericSuccessResponse
     Key, Value string
+}
+
+/* Git Component */
+type GitWatchMessage struct {
+    URL string
+}
+
+type GitWatchResponse struct {
+    GenericSuccessResponse
+    Hash, Message string
 }
